@@ -189,13 +189,21 @@ h1:hover, h2:hover {
     transform: scale(1.08);
 }
 
-/* SWIPER CARRUSEL */
+/* =========================
+   SWIPER CARRUSEL
+========================= */
+
 .swiper-container {
-    width: 90%;
-    max-width: 900px;
+    width: 100%;
+    max-width: 100%;
     height: 220px;
     margin: 40px auto;
     position: relative;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+    /* 🔑 CLAVE: evita que el grid rompa el layout */
+    grid-column: 1 / -1;
 }
 
 .swiper-wrapper {
@@ -203,26 +211,38 @@ h1:hover, h2:hover {
     align-items: center;
 }
 
-/* EL CUADRADO DEL CARRUSEL */
+/* =========================
+   SLIDE (CUADRADO)
+========================= */
+
 .swiper-slide {
-    width: 180px;          /* ⬅️ TAMAÑO FIJO */
-    height: 180px;         /* ⬅️ CUADRADO */
+    width: 180px;
+    height: 180px;
+    flex-shrink: 0;
+
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* LA IMAGEN */
+/* =========================
+   IMAGEN
+========================= */
+
 .swiper-slide img {
     max-width: 100%;
     max-height: 100%;
     width: auto;
     height: auto;
-    object-fit: contain;   /* ⬅️ CLAVE */
+
+    object-fit: contain;   /* ⬅️ NO SE RECORTA */
     display: block;
 }
 
-/* EFECTOS */
+/* =========================
+   EFECTOS
+========================= */
+
 .swiper-slide:hover img {
     transform: scale(1.05);
 }
@@ -240,19 +260,11 @@ h1:hover, h2:hover {
     background-color: #007bff;
 }
 
-/* MÓVIL */
-@media (max-width: 768px) {
-    .swiper-container {
-        width: 100%;
-        height: 200px;
-        margin: 30px auto;
-    }
+/* =========================
+   RESPONSIVE
+========================= */
 
-    .swiper-slide {
-        width: 140px;      /* ⬅️ MÁS PEQUEÑO EN MÓVIL */
-        height: 140px;
-    }
-}
+
 
 /* GALERÍA */
 .grid-gallery {
@@ -532,3 +544,15 @@ footer {
     }
 }
 
+@media (max-width: 768px) {
+
+    .swiper-container {
+        height: 200px;
+        margin: 20px auto;
+    }
+
+    .swiper-slide {
+        width: 140px;
+        height: 140px;
+    }
+}
