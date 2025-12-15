@@ -497,15 +497,20 @@ footer {
     }
 }
 
-@media (max-width: 992px) { 
-    .card-item {
-        width: 45%; 
+@media (max-width: 576px) {
+    .cards-container {
+        flex-direction: column;
+        align-items: center;
     }
-}
 
-@media (max-width: 576px) { 
     .card-item {
-        width: 100%; 
+        flex: 0 0 100%;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .card-item img {
+        height: auto;
     }
 }
 
