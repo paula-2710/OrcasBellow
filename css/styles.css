@@ -158,23 +158,26 @@ h1:hover, h2:hover {
 }
 
 /* CARDS DE PRODUCTOS */
-.cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-}
-
 .card-item {
     background-color: rgba(255,255,255,0.9);
     border-radius: 15px;
-    padding: 15px;
+    padding: 15px; /* un poco más para dar espacio */
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     text-align: center;
     cursor: pointer;
     transition: transform 0.35s ease, box-shadow 0.35s ease;
-    flex: 1 1 calc(25% - 20px); /* 4 cards por fila, restando gap */
-    max-width: 250px; /* ancho máximo de cada card */
+
+    flex: 0 0 19%; /* ancho fijo para 4 cards */
+    max-width: none;
+}
+
+.card-item img {
+    width: 100%;
+    height: 250px; /* un poco más alto que antes */
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    transition: transform 0.35s ease;
 }
 
 .card-item:hover {
@@ -182,30 +185,22 @@ h1:hover, h2:hover {
     box-shadow: 0 10px 25px rgba(0,0,0,0.25);
 }
 
-.card-item img {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 10px;
-    transition: transform 0.35s ease;
-}
-
 .card-item:hover img {
     transform: scale(1.08);
 }
 
 /* RESPONSIVE */
-@media (max-width: 992px) { /* pantallas medianas */
+@media (max-width: 992px) { 
     .card-item {
-        flex: 1 1 calc(50% - 20px); /* 2 cards por fila */
+        width: 45%; /* 2 cards por fila en tablet */
     }
 }
 
-@media (max-width: 576px) { /* móviles */
+@media (max-width: 576px) { 
     .card-item {
-        flex: 1 1 100%; /* 1 card por fila */
+        width: 100%; /* 1 card por fila en móvil */
     }
 }
-
 
 /* SWIPER CARRUSEL */
 .swiper-container {
