@@ -204,6 +204,7 @@ h1:hover, h2:hover {
 
     /* 🔑 CLAVE: evita que el grid rompa el layout */
     grid-column: 1 / -1;
+     overflow: hidden;          /* 🔑 evita que las slides se salgan del contenedor */
 }
 
 .swiper-wrapper {
@@ -259,12 +260,6 @@ h1:hover, h2:hover {
 .swiper-pagination-bullet-active {
     background-color: #007bff;
 }
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-
 
 /* GALERÍA */
 .grid-gallery {
