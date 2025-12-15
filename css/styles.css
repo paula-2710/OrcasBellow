@@ -159,10 +159,10 @@ h1:hover, h2:hover {
 
 /* CARDS DE PRODUCTOS */
 .cards-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    flex-wrap: wrap;
     gap: 20px;
-    margin-top: 20px;
+    justify-content: center;
 }
 
 .card-item {
@@ -173,6 +173,8 @@ h1:hover, h2:hover {
     text-align: center;
     cursor: pointer;
     transition: transform 0.35s ease, box-shadow 0.35s ease;
+    flex: 1 1 calc(25% - 20px); /* 4 cards por fila, restando gap */
+    max-width: 250px; /* ancho máximo de cada card */
 }
 
 .card-item:hover {
@@ -182,7 +184,6 @@ h1:hover, h2:hover {
 
 .card-item img {
     width: 100%;
-    max-width: 200px;
     border-radius: 10px;
     margin-bottom: 10px;
     transition: transform 0.35s ease;
@@ -191,6 +192,20 @@ h1:hover, h2:hover {
 .card-item:hover img {
     transform: scale(1.08);
 }
+
+/* RESPONSIVE */
+@media (max-width: 992px) { /* pantallas medianas */
+    .card-item {
+        flex: 1 1 calc(50% - 20px); /* 2 cards por fila */
+    }
+}
+
+@media (max-width: 576px) { /* móviles */
+    .card-item {
+        flex: 1 1 100%; /* 1 card por fila */
+    }
+}
+
 
 /* SWIPER CARRUSEL */
 .swiper-container {
